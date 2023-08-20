@@ -6,6 +6,7 @@ it's a project directory related api to store project information with it's hist
   - teamleaders
   - employees
   - departments
+This api project is to explore nestjs basic to advance functionality
 
 ## Technology Used
 - ExpressJS
