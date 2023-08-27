@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from 'src/database/database.module';
 import { DepartmentModule } from './modules/department/department.module';
 import { TeamleaderModule } from './modules/teamleader/teamleader.module';
+import { EmployeeModule } from './modules/employee/employee.module';
 
 const modules = [
   UserModule,
@@ -12,6 +13,7 @@ const modules = [
   DatabaseModule,
   DepartmentModule,
   TeamleaderModule,
+  EmployeeModule,
 ];
 
 @Module({
