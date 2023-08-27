@@ -13,7 +13,7 @@ This api project is to explore nestjs basic to advance functionality
 - NestJS
 - TypeORM
 - PostgreSQL
-- Redis
+  
 ## Running Application
 Environment file ```.env``` is available in root directory. Change database credentials if you want then run
 
