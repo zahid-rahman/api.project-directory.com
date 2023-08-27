@@ -24,7 +24,11 @@ export class EmployeeService {
     });
   }
   async createOne(payload: CreateEmployeeDTO) {
-    return this.employeeRepository.save(payload);
+    const modifiedPayload = { ...payload };
+    modifiedPayload['officeIdNumber'] = Math.floor(
+      100000 + Math.random() * 900000,
+    );
+    return this.employeeRepository.save(modifiedPayload);
   }
   async updateOne(id: string, payload: UpdateEmployeeDTO) {
     const isEmployeeExist = await this.findOne(id);

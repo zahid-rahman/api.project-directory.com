@@ -25,6 +25,12 @@ export class Employee1692507763782 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
+            name: 'officeIdNumber',
+            type: ENUM_COLUMN_TYPES.VARCHAR,
+            length: '256',
+            isNullable: true,
+          },
+          {
             name: 'departmentId',
             type: ENUM_COLUMN_TYPES.UUID,
             isNullable: false,

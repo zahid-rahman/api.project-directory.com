@@ -15,15 +15,16 @@ import { UpdateTeamleaderDTO } from '../dtos/update.dto';
 
 @Controller('teamleaders')
 export class TeamleaderController {
+  RELATIONS = ['project'];
   constructor(private readonly teamleaderService: TeamleaderService) {}
   @Get()
   async getAll() {
-    return this.teamleaderService.findAll();
+    return this.teamleaderService.findAll(this.RELATIONS);
   }
 
   @Get(':id')
   async getOne(@Param('id') id: string) {
-    return this.teamleaderService.findOne(id);
+    return this.teamleaderService.findOne(id, this.RELATIONS);
   }
 
   @Post()
