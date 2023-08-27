@@ -6,6 +6,7 @@ import { DatabaseModule } from 'src/database/database.module';
 import { DepartmentModule } from './modules/department/department.module';
 import { TeamleaderModule } from './modules/teamleader/teamleader.module';
 import { EmployeeModule } from './modules/employee/employee.module';
+import { ProjectModule } from './modules/project/project.module';
 
 const modules = [
   UserModule,
@@ -14,6 +15,7 @@ const modules = [
   DepartmentModule,
   TeamleaderModule,
   EmployeeModule,
+  ProjectModule,
 ];
 
 @Module({

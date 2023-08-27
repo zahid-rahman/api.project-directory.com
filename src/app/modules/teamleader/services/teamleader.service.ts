@@ -11,14 +11,15 @@ export class TeamleaderService {
     @InjectRepository(Teamleader)
     private readonly teamleaderRepository: Repository<Teamleader>,
   ) {}
-  async findAll() {
-    return this.teamleaderRepository.find();
+  async findAll(relations?: string[]) {
+    return this.teamleaderRepository.find({ relations });
   }
-  async findOne(id: string) {
+  async findOne(id: string, relations?: string[]) {
     return this.teamleaderRepository.findOne({
       where: {
         id,
       },
+      relations,
     });
   }
   async createOne(payload: CreateTeamleaderDTO) {
