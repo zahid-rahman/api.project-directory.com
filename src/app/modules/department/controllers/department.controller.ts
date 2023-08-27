@@ -15,10 +15,11 @@ import { SuccessResponse } from 'src/app/types/successResponse';
 
 @Controller('departments')
 export class DepartmentController {
+  RELATIONS = ['employees'];
   constructor(private readonly departmentService: DepartmentSerivce) {}
   @Get()
   async getAll() {
-    return this.departmentService.findAll();
+    return this.departmentService.findAll(this.RELATIONS);
   }
 
   @Get(':id')

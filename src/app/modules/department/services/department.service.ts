@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Department } from '../entities/department.entity';
 import { Repository } from 'typeorm';
@@ -11,8 +11,10 @@ export class DepartmentSerivce {
     @InjectRepository(Department)
     private readonly departmentRepository: Repository<Department>,
   ) {}
-  async findAll() {
-    return this.departmentRepository.find();
+  async findAll(relations?: string[]) {
+    return this.departmentRepository.find({
+      relations,
+    });
   }
   async findOne(id: string) {
     return this.departmentRepository.findOne({
@@ -25,6 +27,10 @@ export class DepartmentSerivce {
     return this.departmentRepository.save(payload);
   }
   async updateOne(id: string, payload: UpdateDepartmentDTO) {
+    const isDepartmentExist = await this.findOne(id);
+    if (!isDepartmentExist) {
+      throw new BadRequestException('department not found');
+    }
     return this.departmentRepository.update(id, payload);
   }
   async deleteOne(id: string) {
